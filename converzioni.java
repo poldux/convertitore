@@ -47,11 +47,29 @@ public class converzioni extends Application {
 		finestra.setTitle("convertitore");
 		finestra.show();
 
-		bCalcola.setOnAction(e -> calcola());
+		bCalcola.setOnAction(e -> binario());
 	}
 
-	public void calcola() {
+	public void binario() {
+		int base = Integer.parseInt(tBasConv.getText());
+		int numero =  Integer.parseInt(tNumConv.getText());
+		int segno = 0; 
+		String nConv = "";
+		String ris = "";
+		if(base==2) {
+			for (int i=0; numero!=0; i++) {
+				segno = (numero/2)*2-numero;
+				numero = numero/2;
+				nConv += segno; 
+			}
+			String vett[] = nConv.split("");
+			for (int  i = vett.length-1;i>=0; i--)  {
+				ris+=vett[i];
+			}
+		}
+		lRis.setText(nConv);
 	}
+	
 	
 
 	public static void main(String[] args) {
