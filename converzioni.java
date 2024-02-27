@@ -15,7 +15,7 @@ public class converzioni extends Application {
 	Label lNumConv = new Label("Numero da convertire");
 	Label lBasConv = new Label("Base di converzione ");
 	Label lNumConvert = new Label("Numero convertito");
-	Label lRis = new Label("ciao");
+	Label lRis = new Label(" ");
 	Button bCalcola = new Button("converti");
 
 	
@@ -47,31 +47,89 @@ public class converzioni extends Application {
 		finestra.setTitle("convertitore");
 		finestra.show();
 
-		bCalcola.setOnAction(e -> binario());
+		bCalcola.setOnAction(e -> calcola());
 	}
 
-	public void binario() {
-		int base = Integer.parseInt(tBasConv.getText());
-		int numero =  Integer.parseInt(tNumConv.getText());
-		int segno = 0; 
-		String nConv = "";
-		String ris = "";
-		if(base==2) {
-			for (int i=0; numero!=0; i++) {
-				segno = (numero/2)*2-numero;
-				numero = numero/2;
-				nConv += segno; 
-			}
-			String vett[] = nConv.split("");
-			for (int  i = vett.length-1;i>=0; i--)  {
-				ris+=vett[i];
-			}
+	public void calcola() {
+		int valore= Integer.parseInt(tNumConv.getText());
+		int base= Integer.parseInt(tBasConv.getText());
+
+		int Resto=0;
+		String s= "";
+
+		if(base == 16) {
+
+		while(valore > 0) {
+
+		Resto= valore;
+
+		valore= valore / base;
+
+		Resto= Resto-(valore*base);
+
+		if( Resto < 10 ) {
+
+		s= Resto+s;
+
 		}
-		lRis.setText(nConv);
-	}
-	
-	
 
+		if(Resto == 10) {
+
+		s="A"+s;
+
+		}
+		if(Resto == 11) {
+
+		s="B"+s;
+
+		}
+		if(Resto == 12) {
+
+		s="C"+s;
+
+		}
+		if(Resto == 13) {
+
+		s="D"+s;
+
+		}
+		if(Resto == 14) {
+
+		s="E"+s;
+
+		}
+		if(Resto == 15) {
+
+		s="F"+s;
+
+		}
+
+		}
+
+		}else {
+
+		while(valore > 0) {
+
+		Resto= valore;
+
+		valore= valore / base;
+
+		Resto= Resto-(valore*base);
+
+		s= Resto+s;
+
+		}
+
+		}
+
+
+
+
+
+		lRis.setText(s);
+		}
+	
+ 
 	public static void main(String[] args) {
 		launch(args);
 	}
