@@ -52,6 +52,7 @@ public class converzioni extends Application {
 	}
 
 	public void calcola() {
+<<<<<<< HEAD
 		int valore = Integer.parseInt(tNum.getText());
 		int base = Integer.parseInt(tBasConvIn.getText());
 		Hashtable<Integer, String> my_dict = new Hashtable<Integer, String>();
@@ -100,7 +101,87 @@ public class converzioni extends Application {
 			}
 		}
 	}
+=======
+		int valore= Integer.parseInt(tNumConv.getText());
+		int base= Integer.parseInt(tBasConv.getText());
 
+		int Resto=0;
+		String s= "";
+
+		if(base == 16) {
+
+		while(valore > 0) {
+
+		Resto= valore;
+
+		valore= valore / base;
+
+		Resto= Resto-(valore*base);
+
+		if( Resto < 10 ) {
+
+		s= Resto+s;
+
+		}
+>>>>>>> 95ec7d43f0cbff572edd9c41810a29e0c33cadc3
+
+		if(Resto == 10) {
+
+		s="A"+s;
+
+		}
+		if(Resto == 11) {
+
+		s="B"+s;
+
+		}
+		if(Resto == 12) {
+
+		s="C"+s;
+
+		}
+		if(Resto == 13) {
+
+		s="D"+s;
+
+		}
+		if(Resto == 14) {
+
+		s="E"+s;
+
+		}
+		if(Resto == 15) {
+
+		s="F"+s;
+
+		}
+
+		}
+
+		}else {
+
+		while(valore > 0) {
+
+		Resto= valore;
+
+		valore= valore / base;
+
+		Resto= Resto-(valore*base);
+
+		s= Resto+s;
+
+		}
+
+		}
+
+
+
+
+
+		lRis.setText(s);
+		}
+	
+ 
 	public static void main(String[] args) {
 		launch(args);
 	}
